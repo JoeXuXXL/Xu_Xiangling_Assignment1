@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#generating the new directory "666" in the working directory
+mkdir mian
+
+#using for loop to find all the .txt files in the working 
+#directory and then execute commands for each .txt file
+for file in *.txt;
+do
+
+#copying the original .txt file into the directory "666" 
+ cd mian
+ cp ../"$file" .
+
+#replacing all "the" to "666" in the new 
+#copy of .txt file in the directory "666"
+ sed -i 's/the/mian/g' "$file"
+ sed -i 's/The/mian/g' "$file"
+#go back to the working directory and be ready to operate
+#to the next .txt file
+ cd ../
+
+done
+
